@@ -28,6 +28,7 @@ const LinkWrapper = styled.div`
 const Home = () => {
 
   const [ user, setUser ] = useState({})
+  const [ userData, setUserData ] = useState({})
   const [ redirect, setRedirect ] = useState(false)
 
   const handleChange = e => {
@@ -41,7 +42,7 @@ const Home = () => {
     axios.post('/login', {email: user.email, password: user.password})
       .then( resp => {
         console.log(resp);
-        setUser(resp.data.data)
+        setUserData(resp.data)
         setRedirect(true)
       })
       .catch ( resp => console.log(resp))
@@ -51,8 +52,8 @@ const Home = () => {
   if (redirect) {
     return (
       <Redirect to={{
-       pathname: `/users/${user.id}`,
-       state: { user: user}
+       pathname: `/users/${userData.data.id}`,
+       state: { userData: userData}
      }} />
     )
   }

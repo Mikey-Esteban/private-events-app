@@ -5,7 +5,7 @@ class Api::V1::SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
 
     if user&.valid_password?(params[:password])
-      render json: UserSerializer.new(user).serializable_hash.to_json
+      render json: UserSerializer.new(user, options).serializable_hash.to_json
     else
       render json: { error: blog.errors.messages }, status: 422
     end
@@ -13,4 +13,11 @@ class Api::V1::SessionsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def options
+  @options ||= { include: %i[created_events] }
+  end
+
 end

@@ -6,4 +6,5 @@ class UserSerializer
     user && user.created_at.strftime('%d/%m/%Y')
   end
 
+  has_many :created_events, serializer: EventSerializer
 end

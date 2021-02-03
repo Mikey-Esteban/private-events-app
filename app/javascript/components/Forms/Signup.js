@@ -1,17 +1,9 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router'
-import styled from 'styled-components'
-
-const Wrapper = styled.div`
-  display: block;
-  max-width: 400px;
-  margin: 0 auto;
-
-  label, input {
-    width: 100%;
-  }
-`
+import Wrapper from '../UI/styles/Wrapper'
+import Button from '../UI/Button'
+import Field from '../UI/styles/Field'
 
 const Signup = () => {
 
@@ -60,28 +52,40 @@ const Signup = () => {
     <Wrapper>
       <div>[Signup component]</div>
       <form onSubmit={handleSubmit} >
-        <label htmlFor="name">Name</label>
-        <input type="text" name="name" placeholder="enter name here"
-          onChange={handleChange}
-          value={user.name || ''} />
+        <Field>
+          <label htmlFor="name">Name</label>
+          <input type="text" name="name" placeholder="enter name here"
+            onChange={handleChange}
+            value={user.name || ''} />
 
-        <label htmlFor="email">Email</label>
-        <input type="email" name="email" placeholder="enter email here"
-          onChange={handleChange}
-          value={user.email || ''} />
+        </Field>
 
-        <label htmlFor="password">Password</label>
-        <input type="password" name="password" placeholder="enter password here"
-          onChange={handleChange}
-          value={user.password || ''} />
+        <Field>
+          <label htmlFor="email">Email</label>
+          <input type="email" name="email" placeholder="enter email here"
+            onChange={handleChange}
+            value={user.email || ''} />
+        </Field>
 
+        <Field>
+          <label htmlFor="password">Password</label>
+          <input type="password" name="password" placeholder="enter password here"
+            onChange={handleChange}
+            value={user.password || ''} />
+        </Field>
+
+        <Field>
           <label htmlFor="password_confirmation">password_confirmation</label>
           <input type="password" name="password_confirmation" placeholder="reenter password here"
             onChange={handleChange}
             value={user.password_confirmation || ''} />
+        </Field>
 
-        <input type="submit" value="Register"/>
+        <Field>
+          <input type="submit" value="Register!"/>
+        </Field>
       </form>
+      <Button path={'/'} text={'Login'} />
     </Wrapper>
   )
 }

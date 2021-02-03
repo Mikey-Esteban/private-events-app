@@ -9,6 +9,23 @@ const Wrapper = styled.div`
   label, input {
     width: 100%;
   }
+
+  input[type="submit"] {
+    background: #023047; /* dark blue */
+    border: 1px solid #023047; /* dark blue */
+    border-radius: 4px;
+    padding: 10px 20px;
+    width: auto;
+
+    color: #fff;
+    cursor: pointer;
+    transition: all ease-in-out 150ms;
+  }
+
+  input[type="submit"]:hover {
+    background: #fff;
+    color: #023047; /* dark blue */
+  }
 `
 
 const Login = (props) => {

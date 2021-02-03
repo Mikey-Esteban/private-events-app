@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :users, param: :email, only: [:show]
+      resources :users, only: [:show]
+      resources :events, param: :slug, only: [:index, :show, :create]
       # resources :sessions, only: [:create, :destroy]
     end
   end

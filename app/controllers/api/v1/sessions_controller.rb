@@ -17,7 +17,7 @@ class Api::V1::SessionsController < ApplicationController
   private
 
   def options
-  @options ||= { include: %i[created_events] }
+    @options ||= { include: %i[created_events] }
   end
 
 end

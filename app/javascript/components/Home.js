@@ -28,7 +28,6 @@ const LinkWrapper = styled.div`
 const Home = () => {
 
   const [ user, setUser ] = useState({})
-  const [ userData, setUserData ] = useState({})
   const [ redirect, setRedirect ] = useState(false)
 
   const handleChange = e => {
@@ -41,8 +40,7 @@ const Home = () => {
     // make api request to sessions controller
     axios.post('/login', {email: user.email, password: user.password})
       .then( resp => {
-        console.log(resp);
-        setUserData(resp.data)
+        setUser(resp.data.data)
         setRedirect(true)
       })
       .catch ( resp => console.log(resp))
@@ -50,12 +48,7 @@ const Home = () => {
   }
 
   if (redirect) {
-    return (
-      <Redirect to={{
-       pathname: `/users/${userData.data.id}`,
-       state: { userData: userData}
-     }} />
-    )
+    return <Redirect to={`/users/${user.id}`} />
   }
 
   return (

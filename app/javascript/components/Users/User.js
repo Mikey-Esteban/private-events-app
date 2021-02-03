@@ -1,6 +1,13 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import axios from 'axios'
+import styled from 'styled-components'
 import Button from '../UI/Button'
+
+const Wrapper = styled.div`
+  display: block;
+  max-width: 400px;
+  margin: 0 auto;
+`
 
 const User = (props) => {
 
@@ -32,15 +39,15 @@ const User = (props) => {
   return (
     <Fragment>
       { loaded &&
-        <Fragment>
+        <Wrapper>
           <div>[This is my users#show page.]</div>
           <div className="title">Hello {user.attributes.name}</div>
           <div className="token">your token is {user.attributes.authentication_token}</div>
           <div className="createdEvents">You made {createdEvents.length} events!</div>
           {list}
           <Button path={'/create-event'} state={user} text={'Create Event!'}/>
-          <Button path={'/events'} state={user} text={'All Events'}/>
-        </Fragment>
+          <Button path={'/events'} text={'All Events'} />
+        </Wrapper>
       }
     </Fragment>
   )

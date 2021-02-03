@@ -8,6 +8,8 @@ const Wrapper = styled.div`
 
   label, input {
     width: 100%;
+
+    font-family: 'Montserrat', sans-serif;
   }
 
   input[type="submit"] {

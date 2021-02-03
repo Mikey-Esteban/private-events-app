@@ -5,12 +5,7 @@ import { Link } from 'react-router-dom'
 import { Redirect } from 'react-router'
 import Login from './Forms/Login'
 import Button from './UI/Button'
-
-const Wrapper = styled.div`
-  display: block;
-  max-width: 400px;
-  margin: 0 auto;
-`
+import Wrapper from  './UI/styles/Wrapper'
 
 const Home = () => {
 

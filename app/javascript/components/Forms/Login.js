@@ -1,12 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Button from '../UI/Button'
-
-const Wrapper = styled.div`
-  display: block;
-  max-width: 400px;
-  margin: 0 auto;
-`
+import Wrapper from  '../UI/styles/Wrapper'
 
 const Field = styled.div`
   margin-top: 20px;

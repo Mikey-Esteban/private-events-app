@@ -23,13 +23,12 @@ const LinkWrapper = styled.div`
 `
 
 const Button = (props) => {
-  console.log(props);
   return (
     <LinkWrapper>
       <Link to={{
         pathname: props.path,
         state: { user: props.state }
-      }}>make a new Event!</Link>
+      }}>{props.text}</Link>
     </LinkWrapper>
   )
 }

@@ -38,7 +38,8 @@ const User = (props) => {
           <div className="token">your token is {user.attributes.authentication_token}</div>
           <div className="createdEvents">You made {createdEvents.length} events!</div>
           {list}
-          <Button path={'/create-event'} state={user}/>
+          <Button path={'/create-event'} state={user} text={'Create Event!'}/>
+          <Button path={'/events'} state={user} text={'All Events'}/>
         </Fragment>
       }
     </Fragment>

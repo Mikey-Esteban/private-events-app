@@ -15,11 +15,8 @@ class Api::V1::EventsController < ApplicationController
   end
 
   def create
-    puts "params: #{params}"
     user = User.find_by(id: params[:event][:creator_id])
-    puts "user: #{user}"
     event = user.created_events.new(event_params)
-    puts "event: #{event}"
 
     if event.save
       render json: EventSerializer.new(event).serializable_hash.to_json
@@ -51,7 +48,7 @@ class Api::V1::EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :description, :date, :creator_id)
+    params.require(:event).permit(:title, :description, :date, :creator_id, :creator_name)
   end
 
 

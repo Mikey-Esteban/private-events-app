@@ -17,7 +17,7 @@ const Event = (props) => {
   console.log(props);
   const creator = props.location.state.user
 
-  const [ event, setEvent ] = useState({creator_id: creator.id})
+  const [ event, setEvent ] = useState({creator_id: creator.id, creator_name: creator.attributes.name})
   const [ redirect, setRedirect ] = useState(false)
   const [ errorMessages, setErrorMessages ] = useState([])
 

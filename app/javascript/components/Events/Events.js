@@ -11,7 +11,6 @@ const Events = (props) => {
   useEffect( () => {
     axios.get('/api/v1/events')
       .then( resp => {
-        console.log(resp);
         setEvents(resp.data.data)
         setLoaded(true)
       })

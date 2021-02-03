@@ -14,13 +14,17 @@ const LinkWrapper = styled.div`
 `
 
 const Event = (props) => {
+  console.log('Events/event props:', props);
   return (
     <Wrapper>
       <div className="title">{props.attributes.title}</div>
       <div className="creator">created by {props.attributes.creator_name}</div>
       <div className="date">{props.attributes.date}</div>
       <LinkWrapper>
-        <Link to={`/events/${props.attributes.slug}`}>
+        <Link to={{
+          pathname: `/events/${props.attributes.slug}`,
+          state: { event: props.attributes }
+        }}>
           See Event
         </Link>
       </LinkWrapper>

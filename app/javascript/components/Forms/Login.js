@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Button from '../UI/Button'
 
 const Wrapper = styled.div`
   display: block;
@@ -61,6 +62,7 @@ const Login = (props) => {
           <input type="submit" value="Log in"/>
         </Field>
       </form>
+      <Button path={'/signup'} text={'Sign up!'} />
     </Wrapper>
   )
 }

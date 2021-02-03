@@ -6,6 +6,12 @@ import { Redirect } from 'react-router'
 import Login from './Forms/Login'
 import Button from './UI/Button'
 
+const Wrapper = styled.div`
+  display: block;
+  max-width: 400px;
+  margin: 0 auto;
+`
+
 const Home = () => {
 
   const [ user, setUser ] = useState({})
@@ -33,11 +39,10 @@ const Home = () => {
   }
 
   return (
-    <Fragment>
+    <Wrapper>
       <div>[This is my Home Component.]</div>
       <Login handleChange={handleChange} handleSubmit={handleSubmit} user={user} />
-      <Button path={'/signup'} text={'Sign up!'} />
-    </Fragment>
+    </Wrapper>
   )
 }
 

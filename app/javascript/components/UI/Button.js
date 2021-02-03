@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 const LinkWrapper = styled.div`
-  margin-top: 50px;
+  margin-top: 20px;
 
   a {
     border: 1px solid #fca311 ; /* orange*/
@@ -11,6 +11,7 @@ const LinkWrapper = styled.div`
     padding: 10px 20px;
 
     color: #fca311;
+    font-size: 13px;
     text-decoration: none;
 
     transition: all ease-in-out 150ms;

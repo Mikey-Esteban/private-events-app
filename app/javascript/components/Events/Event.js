@@ -6,15 +6,24 @@ const Wrapper = styled.div`
   margin-bottom: 20px;
 `
 
+const LinkWrapper = styled.div`
+  a {
+    color: #e07a5f; /* red */
+    text-decoration: none;
+  }
+`
+
 const Event = (props) => {
   return (
     <Wrapper>
       <div className="title">{props.attributes.title}</div>
       <div className="creator">created by {props.attributes.creator_name}</div>
       <div className="date">{props.attributes.date}</div>
-      <Link to={`/events/${props.attributes.slug}`}>
-        See Event
-      </Link>
+      <LinkWrapper>
+        <Link to={`/events/${props.attributes.slug}`}>
+          See Event
+        </Link>
+      </LinkWrapper>
     </Wrapper>
   )
 }

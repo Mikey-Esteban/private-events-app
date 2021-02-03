@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import axios from 'axios'
 import Event from './Event'
+import Wrapper from '../UI/styles/Wrapper'
 
 const Events = (props) => {
 
@@ -25,10 +26,10 @@ const Events = (props) => {
   return (
     <Fragment>
       { loaded &&
-        <Fragment>
+        <Wrapper>
           <div>[This is the events#index component]</div>
-          <ul>{list}</ul>
-        </Fragment>
+          <div>{list}</div>
+        </Wrapper>
       }
     </Fragment>
   )

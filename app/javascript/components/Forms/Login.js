@@ -5,11 +5,20 @@ const Wrapper = styled.div`
   display: block;
   max-width: 400px;
   margin: 0 auto;
+`
+
+const Field = styled.div`
+  margin-top: 20px;
 
   label, input {
     width: 100%;
-
     font-family: 'Montserrat', sans-serif;
+  }
+
+  input {
+    border: 1px solid #efefef;
+    margin-top: 5px;
+    padding: 10px 0 10px 10px;
   }
 
   input[type="submit"] {
@@ -34,17 +43,23 @@ const Login = (props) => {
   return (
     <Wrapper>
       <form onSubmit={props.handleSubmit} >
-        <label htmlFor="email">Email</label>
-        <input type="email" name="email" placeholder="enter email here"
-          onChange={props.handleChange}
-          value={props.user.email || ''} />
+        <Field>
+          <label htmlFor="email">Email</label>
+          <input type="email" name="email" placeholder="enter email here"
+            onChange={props.handleChange}
+            value={props.user.email || ''} />
+        </Field>
 
-        <label htmlFor="password">Password</label>
-        <input type="password" name="password" placeholder="enter password here"
-          onChange={props.handleChange}
-          value={props.user.password || ''} />
+        <Field>
+          <label htmlFor="password">Password</label>
+          <input type="password" name="password" placeholder="enter password here"
+            onChange={props.handleChange}
+            value={props.user.password || ''} />
+        </Field>
 
-        <input type="submit" value="Log in"/>
+        <Field>
+          <input type="submit" value="Log in"/>
+        </Field>
       </form>
     </Wrapper>
   )

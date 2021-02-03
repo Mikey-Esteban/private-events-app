@@ -30,6 +30,10 @@ const Field = styled.div`
     background: #fff;
     color: #023047; /* dark blue */
   }
+
+  input[type="date"] {
+    cursor: pointer;
+  }
 `
 
 export default Field

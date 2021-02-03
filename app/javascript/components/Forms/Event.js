@@ -1,17 +1,9 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router'
-import styled from 'styled-components'
-
-const Wrapper = styled.div`
-  display: block;
-  max-width: 400px;
-  margin: 0 auto;
-
-  label, input {
-    width: 100%;
-  }
-`
+import Wrapper from '../UI/styles/Wrapper'
+import Field from '../UI/styles/Field'
+import Button from '../UI/Button'
 
 const Event = (props) => {
   console.log(props);
@@ -47,24 +39,32 @@ const Event = (props) => {
     <Wrapper>
       <div>[Event Form component]</div>
       <form onSubmit={handleSubmit} >
-        <label htmlFor="title">Title</label>
-        <input type="text" name="title" placeholder="enter title here"
-          onChange={handleChange}
-          value={event.title || ''} />
+        <Field>
+          <label htmlFor="title">Title</label>
+          <input type="text" name="title" placeholder="enter title here"
+            onChange={handleChange}
+            value={event.title || ''} />
+        </Field>
 
-        <label htmlFor="description">Description</label>
-        <input type="text" name="description" placeholder="enter description here"
-          onChange={handleChange}
-          value={event.description || ''} />
+        <Field>
+          <label htmlFor="description">Description</label>
+          <input type="text" name="description" placeholder="enter description here"
+            onChange={handleChange}
+            value={event.description || ''} />
+        </Field>
 
-        <label htmlFor="date">Date</label>
-        <input type="date" name="date"
-          onChange={handleChange}
-          value={event.date || ''} />
+        <Field>
+          <label htmlFor="date">Date</label>
+          <input type="date" name="date"
+            onChange={handleChange}
+            value={event.date || ''} />
+        </Field>
 
-
-        <input type="submit" value="Create Event!"/>
+        <Field>
+          <input type="submit" value="Create Event!"/>
+        </Field>
       </form>
+      <Button path={`/users/${creator.id}`} text={'Back'} />
     </Wrapper>
   )
 }

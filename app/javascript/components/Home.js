@@ -4,26 +4,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Redirect } from 'react-router'
 import Login from './Forms/Login'
-
-const LinkWrapper = styled.div`
-  margin-top: 50px;
-
-  a {
-    border: 1px solid #fca311 ; /* orange*/
-    border-radius: 4px;
-    padding: 10px 20px;
-
-    color: #fca311;
-    text-decoration: none;
-
-    transition: all ease-in-out 150ms;
-  }
-
-  a:hover {
-    color: #fff;
-    background: #fca311;
-  }
-`
+import Button from './UI/Button'
 
 const Home = () => {
 
@@ -55,9 +36,7 @@ const Home = () => {
     <Fragment>
       <div>[This is my Home Component.]</div>
       <Login handleChange={handleChange} handleSubmit={handleSubmit} user={user} />
-      <LinkWrapper>
-        <Link to={`/signup`}>Sign up!</Link>
-      </LinkWrapper>
+      <Button path={'/signup'} text={'Sign up!'} />
     </Fragment>
   )
 }

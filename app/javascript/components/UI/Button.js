@@ -23,14 +23,23 @@ const LinkWrapper = styled.div`
 `
 
 const Button = (props) => {
-  return (
-    <LinkWrapper>
-      <Link to={{
-        pathname: props.path,
-        state: { user: props.state }
-      }}>{props.text}</Link>
-    </LinkWrapper>
-  )
+
+  if (props.state) {
+    return (
+      <LinkWrapper>
+        <Link to={{
+          pathname: props.path,
+          state: { user: props.state }
+        }}>{props.text}</Link>
+      </LinkWrapper>
+    )
+  } else {
+    return (
+      <LinkWrapper>
+        <Link to={props.path}>{props.text}</Link>
+      </LinkWrapper>
+    )
+  }
 }
 
 export default Button

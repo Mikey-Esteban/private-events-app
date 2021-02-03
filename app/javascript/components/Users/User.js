@@ -1,12 +1,21 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
+import Navbar from '../UI/Navbar'
+import Wrapper from '../UI/styles/Wrapper'
 import Button from '../UI/Button'
 
-const Wrapper = styled.div`
-  display: block;
-  max-width: 400px;
-  margin: 0 auto;
+const BlueOutlineButton = styled.div`
+  a {
+    background: #fff;
+    border: 1px solid #023047; /* dark blue */
+    color: #023047; /* dark blue */
+  }
+
+  a:hover {
+    background: #023047; /* dark blue */
+    color: #fff;
+  }
 `
 
 const User = (props) => {
@@ -39,15 +48,18 @@ const User = (props) => {
   return (
     <Fragment>
       { loaded &&
-        <Wrapper>
-          <div>[This is my users#show page.]</div>
-          <div className="title">Hello {user.attributes.name}</div>
-          <div className="token">your token is {user.attributes.authentication_token}</div>
-          <div className="createdEvents">You made {createdEvents.length} events!</div>
-          {list}
-          <Button path={'/create-event'} state={user} text={'Create Event!'}/>
-          <Button path={'/events'} text={'All Events'} />
-        </Wrapper>
+        <Fragment>
+          <Navbar user={user}></Navbar>
+          <Wrapper>
+            <div className="title">Hello {user.attributes.name}</div>
+            <div className="token">your token is {user.attributes.authentication_token}</div>
+            <BlueOutlineButton>
+              <Button path={'/events'} state={user} text={'All Events'} isBlue={true} />
+            </BlueOutlineButton>
+            <div className="createdEvents">You made {createdEvents.length} events!</div>
+            {list}
+          </Wrapper>
+        </Fragment>
       }
     </Fragment>
   )

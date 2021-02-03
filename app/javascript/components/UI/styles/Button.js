@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
 const Button = styled.div`
-  margin: 30px 0;
-
   a {
     border: 1px solid #fca311; /* orange*/
     border-radius: 4px;

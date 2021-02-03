@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import axios from 'axios'
+import Event from './Event'
 
 const Events = (props) => {
 
@@ -17,9 +18,7 @@ const Events = (props) => {
 
   const list = events.map( item => {
     return (
-      <li key={item.id}>
-        <div>{item.attributes.title} created by: {item.attributes.creator_name}</div>
-      </li>
+      <Event key={item.id} attributes={item.attributes} />
     )
   })
 

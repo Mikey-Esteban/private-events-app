@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Redirect } from 'react-router'
 import Wrapper from '../UI/styles/Wrapper'
 import Button from '../UI/Button'
+import ButtonWrapper from '../UI/styles/ButtonWrapper'
 import Field from '../UI/styles/Field'
 
 const Signup = () => {
@@ -85,7 +86,9 @@ const Signup = () => {
           <input type="submit" value="Register!"/>
         </Field>
       </form>
-      <Button path={'/'} text={'Login'} />
+      <ButtonWrapper>
+        <Button path={'/'} text={'Login'} />
+      </ButtonWrapper>
     </Wrapper>
   )
 }

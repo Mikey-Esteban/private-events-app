@@ -1,5 +1,7 @@
 import React from 'react'
+import styled from 'styled-components'
 import Button from '../UI/Button'
+import ButtonWrapper from '../UI/styles/ButtonWrapper'
 import Wrapper from  '../UI/styles/Wrapper'
 import Field from '../UI/styles/Field'
 
@@ -25,7 +27,9 @@ const Login = (props) => {
           <input type="submit" value="Log in"/>
         </Field>
       </form>
-      <Button path={'/signup'} text={'Sign up!'} />
+      <ButtonWrapper>
+        <Button path={'/signup'} text={'Sign up!'} />
+      </ButtonWrapper>
     </Wrapper>
   )
 }

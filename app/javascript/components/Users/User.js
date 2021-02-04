@@ -2,8 +2,10 @@ import React, { useState, useEffect, Fragment } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import Navbar from '../UI/Navbar'
-import Wrapper from '../UI/styles/Wrapper'
 import Button from '../UI/Button'
+import ButtonWrapper from '../UI/styles/ButtonWrapper'
+import Wrapper from '../UI/styles/Wrapper'
+
 
 const BlueOutlineButton = styled.div`
   a {
@@ -53,7 +55,9 @@ const User = (props) => {
             <div className="title">Hello {user.attributes.name}</div>
             <div className="token">your token is {user.attributes.authentication_token}</div>
             <BlueOutlineButton>
-              <Button path={'/events'} state={user} text={'All Events'} />
+              <ButtonWrapper>
+                <Button path={'/events'} state={user} text={'All Events'} />
+              </ButtonWrapper>
             </BlueOutlineButton>
             <div className="createdEvents">You made {createdEvents.length} events!</div>
             {list}

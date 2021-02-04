@@ -11,7 +11,7 @@ const LinkWrapper = styled.div`
 `
 
 const Event = (props) => {
-
+  console.log('Events/event ', props);
   return (
     <Wrapper>
       <div className="title">{props.attributes.title}</div>
@@ -21,7 +21,7 @@ const Event = (props) => {
         <Link to={{
           pathname: `/events/${props.attributes.slug}`,
           state: {
-            event: props.attributes,
+            event: props.event,
             user: props.user
           }
         }}>

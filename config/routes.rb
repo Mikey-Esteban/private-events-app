@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only: [:show]
       resources :events, only: [:index, :show, :create]
+      resources :event_attendings, only: [:create]
       # resources :sessions, only: [:create, :destroy]
     end
   end

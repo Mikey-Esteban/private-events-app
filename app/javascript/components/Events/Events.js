@@ -20,7 +20,7 @@ const Events = (props) => {
 
   const list = events.map( item => {
     return (
-      <Event key={item.id} attributes={item.attributes} user={user} />
+      <Event key={item.id} attributes={item.attributes} event={item} user={user} />
     )
   })
 

@@ -8,9 +8,11 @@ class Api::V1::UsersController < ApplicationController
   end
 
   private
-  
+
   def options
-    @options ||= { include: %i[created_events] }
+    @options ||= {
+      include: %i[created_events]
+    }
   end
 
 end

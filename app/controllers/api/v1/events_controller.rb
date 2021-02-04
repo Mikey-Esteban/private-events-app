@@ -5,13 +5,13 @@ class Api::V1::EventsController < ApplicationController
   def index
     events = Event.all.order(created_at: :desc)
 
-    render json: EventSerializer.new(events).serializable_hash.to_json
+    render json: EventSerializer.new(events, options).serializable_hash.to_json
   end
 
   def show
-    event = Event.find_by(slug: params[:slug])
+    event = Event.find_by(id: params[:id])
 
-    render json: EventSerializer.new(event).serializable_hash.to_json
+    render json: EventSerializer.new(event, options).serializable_hash.to_json
   end
 
   def create
@@ -26,17 +26,17 @@ class Api::V1::EventsController < ApplicationController
   end
 
   def update
-    event = Event.find_by(slug: params[:slug])
+    event = Event.find_by(id: params[:id])
 
     if event.update(event_params)
-      render json: EventSerializer.new(event).serializable_hash.to_json
+      render json: EventSerializer.new(event, options).serializable_hash.to_json
     else
       render json: { error: event.errors.messages }, status: 422
     end
   end
 
   def destroy
-    event = Event.find_by(slug: params[:slug])
+    event = Event.find_by(id: params[:id])
 
     if event.destroy
       head :no_content
@@ -51,6 +51,8 @@ class Api::V1::EventsController < ApplicationController
     params.require(:event).permit(:title, :description, :date, :creator_id, :creator_name)
   end
 
-
+  def options
+    @options ||= { include: %i[attendees] }
+  end
 
 end

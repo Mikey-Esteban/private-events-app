@@ -7,4 +7,5 @@ class UserSerializer
   end
 
   has_many :created_events, serializer: EventSerializer
+  has_many :attending_events, serializer: EventSerializer
 end

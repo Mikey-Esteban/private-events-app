@@ -6,24 +6,11 @@ import AttendingEvents from './AttendingEvents'
 import Navbar from '../UI/Navbar'
 import Button from '../UI/Button'
 import ButtonWrapper from '../UI/styles/ButtonWrapper'
+import BlueOutlineButton from '../UI/styles/BlueOutlineButton'
 import Wrapper from '../UI/styles/Wrapper'
 
 
-const BlueOutlineButton = styled.div`
-  a {
-    background: #fff;
-    border: 1px solid #023047; /* dark blue */
-    color: #023047; /* dark blue */
-  }
-
-  a:hover {
-    background: #023047; /* dark blue */
-    color: #fff;
-  }
-`
-
 const User = (props) => {
-  console.log('User props', props);
 
   const user = props.location.state.user
   const attendingEventsData = user.relationships.attending_events.data
@@ -44,10 +31,8 @@ const User = (props) => {
 
     // make a call to each attendingEventsData
     attendingEventsData.forEach( (el) => {
-      console.log(el);
       axios.get(`/api/v1/events/${el.id}`)
         .then( resp => {
-          debugger
           setAttendingEvents([...attendingEvents, resp.data.data])
         })
         .catch( resp => console.log(resp) )

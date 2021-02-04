@@ -23,7 +23,10 @@ const Event = (props) => {
       <LinkWrapper>
         <Link to={{
           pathname: `/events/${props.attributes.slug}`,
-          state: { event: props.attributes }
+          state: {
+            event: props.attributes,
+            user: props.user 
+          }
         }}>
           See Event
         </Link>

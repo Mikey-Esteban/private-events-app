@@ -30,7 +30,10 @@ const Home = () => {
   }
 
   if (redirect) {
-    return <Redirect to={`/users/${user.id}`} />
+    return <Redirect to={{
+      pathname: `/users/${user.id}`,
+      state: { user: user }
+    }} />
   }
 
   return (

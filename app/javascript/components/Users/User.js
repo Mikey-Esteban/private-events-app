@@ -20,7 +20,7 @@ const BlueOutlineButton = styled.div`
 
 const User = (props) => {
 
-  const [ user, setUser ] = useState({})
+  const user = props.location.state.user
   const [ createdEvents, setCreatedEvents ] = useState([])
   const [ loaded, setLoaded ] = useState(false)
 
@@ -29,7 +29,6 @@ const User = (props) => {
     console.log("user id", user_id);
     axios.get(`/api/v1/users/${user_id}`)
       .then( resp => {
-        setUser(resp.data.data)
         setCreatedEvents(resp.data.included)
         setLoaded(true)
       })
@@ -47,14 +46,14 @@ const User = (props) => {
 
   return (
     <Fragment>
+      <Navbar user={user}></Navbar>
       { loaded &&
         <Fragment>
-          <Navbar user={user}></Navbar>
           <Wrapper>
             <div className="title">Hello {user.attributes.name}</div>
             <div className="token">your token is {user.attributes.authentication_token}</div>
             <BlueOutlineButton>
-              <Button path={'/events'} state={user} text={'All Events'} isBlue={true} />
+              <Button path={'/events'} state={user} text={'All Events'} />
             </BlueOutlineButton>
             <div className="createdEvents">You made {createdEvents.length} events!</div>
             {list}

@@ -1,10 +1,7 @@
 import React, { Fragment} from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-
-const Wrapper = styled.div`
-  margin-bottom: 20px;
-`
+import Wrapper from '../UI/styles/Wrapper'
 
 const LinkWrapper = styled.div`
   a {
@@ -14,7 +11,7 @@ const LinkWrapper = styled.div`
 `
 
 const Event = (props) => {
-  console.log('Events/event props:', props);
+
   return (
     <Wrapper>
       <div className="title">{props.attributes.title}</div>
@@ -25,7 +22,7 @@ const Event = (props) => {
           pathname: `/events/${props.attributes.slug}`,
           state: {
             event: props.attributes,
-            user: props.user 
+            user: props.user
           }
         }}>
           See Event
